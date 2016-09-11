@@ -1,0 +1,21 @@
+{
+  "name": "touggourtiweb",
+  "description": "Touggourt Social Network",
+  "main": "gulpfile.js",
+  "authors": [
+    "LARABA MOHAMMED SEDDIK"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/mslaraba/TouggourtiWeb",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

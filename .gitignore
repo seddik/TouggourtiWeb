@@ -74,3 +74,6 @@ mongod
 *.ntvs*
 *.njsproj
 *.sln
+
+bower_components
+public/vendor

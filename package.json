@@ -1,0 +1,26 @@
+{
+  "name": "touggourtiweb",
+  "version": "0.1.0",
+  "description": "Touggourt Social Network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mslaraba/TouggourtiWeb.git"
+  },
+  "author": "LARABA MOHAMMED SEDDIK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mslaraba/TouggourtiWeb/issues"
+  },
+  "homepage": "https://github.com/mslaraba/TouggourtiWeb#readme",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
