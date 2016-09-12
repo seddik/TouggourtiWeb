@@ -77,3 +77,6 @@ mongod
 
 bower_components
 public/vendor
+src/app/js
+src/app/css
+src/app/node_modules
