@@ -12,10 +12,10 @@ module.exports = function (grunt) {
             default: {
                 src: [
                     './public/vendor/jquery/jquery.js',
-                    './public/vendor/bootstrap/dist/js/bootstrap.js',
-                    './src/assets/js/frontend.js'
+                    './public/vendor/bootstrap/dist/js/bootstrap.js'
+
                 ],
-                dest: './src/app/js/frontend.js',
+                dest: './src/app/js/bsjq.js',
             }
         },
         less: {
@@ -35,6 +35,7 @@ module.exports = function (grunt) {
             default: {
                 files: {
                     './src/app/js/frontend.js': './src/app/js/frontend.js',
+                    './src/app/js/bsjq.js': './src/app/js/bsjq.js',
                 }
             },
 
@@ -52,16 +53,18 @@ module.exports = function (grunt) {
         , "node_modules/@angular/common/bundles/common.umd.js"
         , "node_modules/@angular/compiler/bundles/compiler.umd.js"
         , "node_modules/@angular/platform-browser/bundles/platform-browser.umd.js"
-        , "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"], dest: './src/app'
+        , "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"
+                      ], dest: './src/app'
                   },
-
+                  { expand: true, src: "frontend.js", cwd: "src/assets/js/", dest: './src/app/js' },
+                { expand: true, src: "*", cwd: "public/vendor/font-awesome/fonts/", dest: './src/app/fonts' }
 
                 ],
             }
         },
-        });
+    });
 
-    grunt.registerTask('all', 'Less Concat Uglify',['less','concat','uglify','copy'] );
+    grunt.registerTask('all', 'Less Concat Uglify', ['less', 'concat', 'uglify', 'copy']);
 
 
 }
