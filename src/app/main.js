@@ -21,18 +21,26 @@ $(document).ready(function () {
 
              } else {
 
+                 var result = [];
 
+                 for (var i in data)
+                     result.push({ value: data[i]["nom"], tel: data[i]["data"] });
+                 // setup autocomplete function pulling from currencies[] array
+                 $('#autocomplete').autocomplete({
+                     lookup: result,
+                     onSelect: function (suggestion) {
+                      
+                     }
+
+                 });
 
                  
-
-                 for (var key in data) {
-                     if (data.hasOwnProperty(key)) {
-                         var activ = data[key];
-                         $("#list-activite").append('<li class="list-group-item">' + activ["nom"] + '</li>');
-                     }
-                 }
+ 
 
              }
          }
          );
+
+
+  
 });

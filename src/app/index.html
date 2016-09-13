@@ -56,14 +56,14 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
                 <h4>بحث في المدينة</h4>
-                <div class="input-group input-group-rtl">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn input-group-btn-rtl">
-                        <button class="btn btn-success" type="button">
-                            <span class="fa fa-search"></span>
-                        </button>
-                    </span>
-
+ 
+                <div id="searchfield" class="input-group input-group-rtl">
+                        <input type="text" class="form-control biginput" id="autocomplete" name="currency">
+                        <span class="input-group-btn input-group-btn-rtl">
+                            <button class="btn btn-success" type="button">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </span>
                 </div>
                 <div class="clearfix" style="margin:20px;"></div>
                 <div>
@@ -139,6 +139,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCb523LXFWmMkhES-oztJZRFPhOZIcrvlM&callback=initMap"
             async defer></script>
     <script src="js/jquery.js"></script>
+    <script src="js/jquery.autocomplete.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src='main.js'></script>
 </body>

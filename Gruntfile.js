@@ -48,7 +48,7 @@ module.exports = function (grunt) {
                 files: [
 
                   
-                  { expand: true, src: "frontend.js", cwd: "src/assets/js/", dest: './src/app/js' },
+                  { expand: true, src: "*", cwd: "src/assets/js/", dest: './src/app/js' },
                   { expand: true, src: "tggtfont.otf", cwd: "src/assets/fonts/", dest: './src/app/fonts' },
                 { expand: true, src: "bootstrap.js", cwd: "public/vendor/bootstrap/dist/js/", dest: './src/app/js' },
                 { expand: true, src: "jquery.js", cwd: "public/vendor/jquery/dist/", dest: './src/app/js' },
