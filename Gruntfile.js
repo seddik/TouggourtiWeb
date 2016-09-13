@@ -12,7 +12,7 @@ module.exports = function (grunt) {
         concat: {
             default: {
                 src: [
-                    './public/vendor/jquery/jquery.js',
+                    './public/vendor/jquery/src/jquery.js',
                     './public/vendor/bootstrap/dist/js/bootstrap.js'
 
                 ],
@@ -36,30 +36,22 @@ module.exports = function (grunt) {
             default: {
                 files: {
                     './src/app/js/frontend.js': './src/app/js/frontend.js',
-                    './src/app/js/bsjq.js': './src/app/js/bsjq.js',
+                    './src/app/js/bootstrap.js': './src/app/js/bootstrap.js',
+                    './src/app/js/jquery.js': './src/app/js/jquery.js',
                 }
             },
 
         },
-        clean: ["src/app/css","src/app/fonts","src/app/js","src/app/node_modules"],
+        clean: ["src/app/css","src/app/fonts","src/app/js"],
         copy: {
             default: {
                 files: [
 
-                  {
-                      expand: true, src: ["node_modules/core-js/client/shim.min.js"
-        , "node_modules/zone.js/dist/zone.js"
-        , "node_modules/reflect-metadata/Reflect.js"
-        , "node_modules/rxjs/bundles/Rx.umd.js"
-        , "node_modules/@angular/core/bundles/core.umd.js"
-        , "node_modules/@angular/common/bundles/common.umd.js"
-        , "node_modules/@angular/compiler/bundles/compiler.umd.js"
-        , "node_modules/@angular/platform-browser/bundles/platform-browser.umd.js"
-        , "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"
-                      ], dest: './src/app'
-                  },
+                  
                   { expand: true, src: "frontend.js", cwd: "src/assets/js/", dest: './src/app/js' },
                   { expand: true, src: "tggtfont.otf", cwd: "src/assets/fonts/", dest: './src/app/fonts' },
+                { expand: true, src: "bootstrap.js", cwd: "public/vendor/bootstrap/dist/js/", dest: './src/app/js' },
+                { expand: true, src: "jquery.js", cwd: "public/vendor/jquery/dist/", dest: './src/app/js' },
                 { expand: true, src: "*", cwd: "public/vendor/font-awesome/fonts/", dest: './src/app/fonts' }
 
                 ],
@@ -67,8 +59,8 @@ module.exports = function (grunt) {
         },
     });
 
-    grunt.registerTask('all', 'Less Concat Uglify', ['less', 'concat', 'uglify', 'copy']);
-    grunt.registerTask('rebuild', 'Clean Less Concat Uglify', ['clean','less', 'concat', 'uglify', 'copy']);
+    grunt.registerTask('all', 'Less Concat Uglify', ['less', 'concat', 'copy', 'uglify']);
+    grunt.registerTask('rebuild', 'Clean Less Concat Uglify', ['clean', 'less', 'concat', 'copy', 'uglify']);
 
 
 }
