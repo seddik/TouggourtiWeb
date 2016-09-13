@@ -59,6 +59,7 @@ module.exports = function (grunt) {
                       ], dest: './src/app'
                   },
                   { expand: true, src: "frontend.js", cwd: "src/assets/js/", dest: './src/app/js' },
+                  { expand: true, src: "tggtfont.otf", cwd: "src/assets/fonts/", dest: './src/app/fonts' },
                 { expand: true, src: "*", cwd: "public/vendor/font-awesome/fonts/", dest: './src/app/fonts' }
 
                 ],
@@ -67,6 +68,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('all', 'Less Concat Uglify', ['less', 'concat', 'uglify', 'copy']);
+    grunt.registerTask('rebuild', 'Clean Less Concat Uglify', ['clean','less', 'concat', 'uglify', 'copy']);
 
 
 }
