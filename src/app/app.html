@@ -1,5 +1,5 @@
 ﻿  <!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header " style="float:right">
@@ -9,10 +9,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img  src="images/logo.png" alt="تقرتي"/></a>
+            <a class="navbar-brand" href="/"><img src="images/logo.png" alt="تقرتي" /></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style="float:right">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right">
             <ul class="nav navbar-nav">
                 <li>
                     <a href="#">عن الموقع</a>
@@ -35,46 +35,52 @@
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-                <h4>بحث في المدينة</h4>
-                <div class="input-group input-group-rtl">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn input-group-btn-rtl">
-                        <button class="btn btn-success" type="button">
-                            <span class="fa fa-search"></span>
-                        </button>
-                    </span>
-                <!-- /.input-group -->
+            <h4>بحث في المدينة</h4>
+            <div class="input-group input-group-rtl">
+                <input type="text" class="form-control">
+                <span class="input-group-btn input-group-btn-rtl">
+                    <button class="btn btn-success" type="button">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+                
+            </div>
+            <div class="clearfix" style="margin:20px;"></div>
+            <div >
+                <tggt-map></tggt-map>
             </div>
         </div>
         <!-- Blog Sidebar Widgets Column -->
         <div class="col-md-4">
             <!-- Blog Search Well -->
-         
             <!-- Blog Categories Well -->
             <div class="well">
-                <h4>حالة الطقس</h4>
+                <h4>مدينة تقرت</h4>
                 <tggt-weather></tggt-weather>
-                <h4>مواقيت الصلاة</h4>
                 <tggt-prayer></tggt-prayer>
+            </div>
+            <div class="well">
+                <h4>آخر أخبار المدينة</h4>
             </div>
             <!-- Side Widget Well -->
             <div class="well">
                 <h4>المطورون</h4>
                 <p><a href="http://optimit.dz" target="_blank">أوبتيم أي تي</a></p>
-                <p><a href="http://academyatinfo.com" target="_blank">أكادمية المعلوماتية، لمعلوماتية ببساطة</a></p>
+                <p><a href="http://academyatinfo.com" target="_blank">أكادمية المعلوماتية، المعلوماتية ببساطة</a></p>
             </div>
         </div>
     </div>
     <!-- /.row -->
     <hr>
     <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>جميع الحقوق محفوظة &copy; تقرتي {{year}}</p>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-    </footer>
+
 </div>
+<footer >
+    <div style="padding-top:20px;padding-bottom:5px">
+        <div style="margin:auto;text-align:center;width:70%;color:white">
+            <p>جميع الحقوق محفوظة &copy; تقرتي {{year}}</p>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</footer>

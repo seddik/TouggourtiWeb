@@ -3,9 +3,6 @@
     font-family: tggtfont;
     src: url('fonts/tggtfont.otf') format('opentype');
 }
-#test {
-    font-family: 'tggtfont';
-}
 
 .navbar-brand {
     padding-top: 15px;
@@ -26,4 +23,7 @@
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
+}
+#map{
+    height:400px;
 }

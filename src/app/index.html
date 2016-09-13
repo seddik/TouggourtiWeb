@@ -25,6 +25,7 @@
     <script src='app.component.js'></script>
     <script src='widgets/weather.js'></script>
     <script src='widgets/prayer.js'></script>
+    <script src='widgets/map.js'></script>
     <script src='app.module.js'></script>
     <script src='main.js'></script>
     <script src="js/frontend.js"></script>
@@ -33,7 +34,17 @@
 <body>
 
     <tggt-app></tggt-app>
-
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 33.1130013, lng: 6.0694183 },
+          zoom: 14
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCb523LXFWmMkhES-oztJZRFPhOZIcrvlM&callback=initMap"
+            async defer></script>
     <script src="js/bsjq.js"></script>
 </body>
 </html>
