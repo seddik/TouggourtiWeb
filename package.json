@@ -5,6 +5,7 @@
   "main": "app/app.main.js",
   "scripts": {
     "start": "npm run lite",
+    "server": "nodemon src/server/app/server.js",
     "lite": "lite-server"
   },
   "repository": {
@@ -18,13 +19,16 @@
   },
   "homepage": "https://github.com/mslaraba/TouggourtiWeb#readme",
   "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-less": "^1.4.0",
     "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt-contrib-watch": "^1.0.0",
+    "mongoose": "~3.6.13"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
