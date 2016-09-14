@@ -1,32 +1,15 @@
-﻿var Sequelize = require('sequelize')
-var sqlite3 = require('sqlite3').verbose();
+﻿var Sequelize = require('sequelize'),
+    epilogue = require('epilogue'),
+    http = require('http');
+
 var path = require('path');
 var dbPath = path.resolve(__dirname, 'touggourti.db')
-var sequelize = new Sequelize('', '', '', { dialect: 'sqlite', storage: dbPath });
-var db = new sqlite3.Database(dbPath);
 
-//db.serialize(function () {
-//    db.run("CREATE TABLE IF NOT EXISTS [activite] (\
-//[id] INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,\
-//[nom] TEXT  UNIQUE NOT NULL,\
-//[ar_nom] TEXT  UNIQUE NOT NULL,\
-//[] NVARCHAR(50)  NULL,\
-//[] NVARCHAR(50)  NULL,\
-//[] NVARCHAR(50)  NULL,\
-//[] NVARCHAR(50) DEFAULT 'All' NULL,\
-//[] TEXT  NULL,\
-//[] NVARCHAR(50)  NULL,\
-//[] TEXT  NULL,\
-//[] TEXT  NULL,\
-//[] NVARCHAR(50)  NULL,\
-//[] NVARCHAR(50)  NULL,\
-//[] NVARCHAR(50)  NULL,\
-//[] TEXT  NULL\
-//)");
+// Define your models
+var database = new Sequelize('database', 'root', 'password', { dialect: 'sqlite', storage: dbPath });
+ 
 
-//});
-
-var ActiviteDB = sequelize.define('activite', {
+var Activite = database.define('Activite', {
     nom: { type: Sequelize.STRING },
     nom_ar: { type: Sequelize.STRING },
     domaine: { type: Sequelize.STRING },
@@ -41,89 +24,50 @@ var ActiviteDB = sequelize.define('activite', {
     fax: { type: Sequelize.STRING },
     website: { type: Sequelize.STRING },
     description: { type: Sequelize.STRING },
-}, {
-    freezeTableName: true
-}).sync();
- 
-//var addHeaders = function () {
-//    res.header('Access-Control-Allow-Origin', '*');
-//    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//    res.header('Access-Control-Allow-Headers', 'Content-Type');
-//};
-var bodyParser = require('body-parser');
-var express = require('express');
+});
+
+// Initialize server
+
+
+var express = require('express'),
+    bodyParser = require('body-parser');
+
 var app = express();
-
-app.use(bodyParser.urlencoded({ extended: false }));
+app.set('port', process.env.PORT || 5213);
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+var server = http.createServer(app).listen(app.get('port'),
+  function () {
+      console.log("Express server listening on port " + app.get('port'));
+  });
 
-app.get('/api', function (req, res) {
-    
-    res.json({ "message": "touggourti" });
 
+// Initialize epilogue
+epilogue.initialize({
+    app: app,
+    sequelize: database
 });
 
-app.get('/api/activite', function (req, res) {
-
-
-    db.all("SELECT * FROM activite", function (err, row) {
-        if (err) {
-            res.json({ "error": err });
-        }
-        else {
-            res.json(row);
-        }
-    });
-
+// Create REST resource
+var userResource = epilogue.resource({
+    model: Activite,
+    endpoints: ['/api/activite', '/api/activite/:id']
 });
 
-app.get('/api/activite/:id', function (req, res) {
+// Create database and listen
+database
+  .sync()
+  .then(function () {
+      server.listen(function () {
+          var host = server.address().address,
+              port = server.address().port;
 
-    db.get("SELECT * FROM activite where id= ? ", req.params.id, function (err, row) {
-        if (err) {
-            res.json({ "error": err });
-        }
-        else {
-            res.json(row);
-        }
-    });
-});
-app.post('/api/activite', function (req, res) {
-    
-    ActiviteDB.create({
-        nom:   req.body.nom, 
-        nom_ar:   req.body.nom_ar ,
-        domaine:   req.body.domaine ,
-        tel:   req.body.tel ,
-        mobile:   req.body.mobile ,
-        categorie:   req.body.categorie ,
-        keywords:   req.body.keywords ,
-        gps:   req.body.gps ,
-        logo:   req.body.logo ,
-        adresse:   req.body.adresse ,
-        email:   req.body.email ,
-        fax:   req.body.fax ,
-        website:   req.body.website ,
-        description: req.body.description
-    });
-    
-    res.json("OK");
-});
+          console.log('listening to port %s', host, port);
+      });
+  });
+
+
+
+
+
  
-app.listen(5213);
-
-console.log("Submit GET or POST to http://localhost:5213/api");
-
-var print = function (o) {
-    var str = '';
-
-    for (var p in o) {
-        if (typeof o[p] == 'string') {
-            str += p + ': ' + o[p] + '; </br>';
-        } else {
-            str += p + ': { </br>' + print(o[p]) + '}';
-        }
-    }
-
-    return str;
-}
