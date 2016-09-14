@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
- 
+
 
     jQuery(function ($) {
         $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Touggourt&units=metric&APPID=df11073dc1abfbeb8d46132ea00ee41d', function (data) {
@@ -34,9 +34,11 @@ $(document).ready(function () {
         $.getJSON('http://localhost:5213/api/activite/', function (data) {
             var result = [];
 
-            for (var i in data)
-                result.push({ value: data[i]["nom"], tel: data[i]["data"] });
-            // setup autocomplete function pulling from currencies[] array
+            for (var i in data) {
+                result.push({ value: data[i].nom, tel: data[i].id });
+                result.push({ value: data[i].nom_ar, tel: data[i].id });
+            }
+
             $('#autocomplete').autocomplete({
                 lookup: result,
                 onSelect: function (suggestion) {
@@ -46,7 +48,7 @@ $(document).ready(function () {
             });
         });
     });
- 
+
 
 
 
