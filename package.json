@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/mslaraba/TouggourtiWeb#readme",
   "dependencies": {
-    "body-parser": "~1.0.1",
+    "body-parser": "^1.0.2",
     "express": "~4.0.0",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",

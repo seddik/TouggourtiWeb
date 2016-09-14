@@ -26,8 +26,8 @@ var db = new sqlite3.Database(dbPath);
 
 //});
 
-var User = sequelize.define('activite', {
-    nom: { type: Sequelize.STRING, },
+var ActiviteDB = sequelize.define('activite', {
+    nom: { type: Sequelize.STRING },
     nom_ar: { type: Sequelize.STRING },
     domaine: { type: Sequelize.STRING },
     tel: { type: Sequelize.STRING },
@@ -43,22 +43,28 @@ var User = sequelize.define('activite', {
     description: { type: Sequelize.STRING },
 }, {
     freezeTableName: true
-});
+}).sync();
  
-
+//var addHeaders = function () {
+//    res.header('Access-Control-Allow-Origin', '*');
+//    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//    res.header('Access-Control-Allow-Headers', 'Content-Type');
+//};
+var bodyParser = require('body-parser');
 var express = require('express');
-var restapi = express();
+var app = express();
 
-restapi.get('/api', function (req, res) {
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.get('/api', function (req, res) {
+    
     res.json({ "message": "touggourti" });
 
 });
 
-restapi.get('/api/activite', function (req, res) {
+app.get('/api/activite', function (req, res) {
 
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
 
     db.all("SELECT * FROM activite", function (err, row) {
         if (err) {
@@ -70,7 +76,54 @@ restapi.get('/api/activite', function (req, res) {
     });
 
 });
+
+app.get('/api/activite/:id', function (req, res) {
+
+    db.get("SELECT * FROM activite where id= ? ", req.params.id, function (err, row) {
+        if (err) {
+            res.json({ "error": err });
+        }
+        else {
+            res.json(row);
+        }
+    });
+});
+app.post('/api/activite', function (req, res) {
+    
+    ActiviteDB.create({
+        nom:   req.body.nom, 
+        nom_ar:   req.body.nom_ar ,
+        domaine:   req.body.domaine ,
+        tel:   req.body.tel ,
+        mobile:   req.body.mobile ,
+        categorie:   req.body.categorie ,
+        keywords:   req.body.keywords ,
+        gps:   req.body.gps ,
+        logo:   req.body.logo ,
+        adresse:   req.body.adresse ,
+        email:   req.body.email ,
+        fax:   req.body.fax ,
+        website:   req.body.website ,
+        description: req.body.description
+    });
+    
+    res.json("OK");
+});
  
-restapi.listen(5213);
+app.listen(5213);
 
 console.log("Submit GET or POST to http://localhost:5213/api");
+
+var print = function (o) {
+    var str = '';
+
+    for (var p in o) {
+        if (typeof o[p] == 'string') {
+            str += p + ': ' + o[p] + '; </br>';
+        } else {
+            str += p + ': { </br>' + print(o[p]) + '}';
+        }
+    }
+
+    return str;
+}
