@@ -1,4 +1,5 @@
-﻿var Sequelize = require('sequelize'),
+﻿var config = require('../../config.js');
+var Sequelize = require('sequelize'),
     epilogue = require('epilogue'),
     http = require('http');
 
@@ -7,7 +8,7 @@ var dbPath = path.resolve(__dirname, 'touggourti.db')
 
 // Define your models
 var database = new Sequelize('database', 'root', 'password', { dialect: 'sqlite', storage: dbPath });
- 
+
 
 var Activite = database.define('Activite', {
     nom: { type: Sequelize.STRING },
@@ -36,6 +37,15 @@ var app = express();
 app.set('port', process.env.PORT || 5213);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+var allowCrossDomain = function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', config.host);
+
+    next();
+}
+
+app.use(allowCrossDomain);
+
 var server = http.createServer(app).listen(app.get('port'),
   function () {
       console.log("Express server listening on port " + app.get('port'));
@@ -48,11 +58,16 @@ epilogue.initialize({
     sequelize: database
 });
 
+//app.all('/', function (req, res, next) {
+//    res.header('Access-Control-Allow-Origin', config.host);
+//    next(); 
+//});
 // Create REST resource
 var userResource = epilogue.resource({
     model: Activite,
     endpoints: ['/api/activite', '/api/activite/:id']
 });
+
 
 // Create database and listen
 database
@@ -70,4 +85,4 @@ database
 
 
 
- 
+
