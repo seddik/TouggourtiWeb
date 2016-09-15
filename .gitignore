@@ -77,7 +77,7 @@ mongod
 
 bower_components
 public/vendor
-src/app/js
-src/app/css
-src/app/fonts
+src/app/www/js
+src/app/www/css
+src/app/www/fonts
 src/server/app/touggourti.db

@@ -21,6 +21,10 @@ NB :
 
 ```npm start```
 
+### Server
+
+```npm run server```
+
 ### Demo
 
 
