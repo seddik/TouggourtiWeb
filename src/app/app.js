@@ -1,3 +1,4 @@
+var config = require('./config.js');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var path = require('path');
@@ -5,7 +6,7 @@ var http = require('http');
 
 var app = express();
 var server = http.createServer(app);
- 
+
 
 app.use(express.static(path.resolve(__dirname, 'www')));
 
@@ -14,7 +15,7 @@ app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', '.html');
 
 app.get('/', function (req, res) {
-    res.render('home', { host:JSON.stringify( server.address()) });
+    res.render('index', { api_activite_url: config.api_activite_url });
 });
 
 server.listen(3333);

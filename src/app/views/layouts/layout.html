@@ -121,5 +121,25 @@
     <script src="js/jquery.autocomplete.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src='main.js'></script>
+   <script>
+       jQuery(function ($) {
+           $.getJSON('{{api_activite_url}}', function (data) {
+               var result = [];
+
+               for (var i in data) {
+                   result.push({ value: data[i].nom, tel: data[i].id });
+                   result.push({ value: data[i].nom_ar, tel: data[i].id });
+               }
+
+               $('#autocomplete').autocomplete({
+                   lookup: result,
+                   onSelect: function (suggestion) {
+
+                   }
+
+               });
+           });
+       });
+   </script>
 </body>
 </html>

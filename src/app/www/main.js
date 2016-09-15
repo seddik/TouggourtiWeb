@@ -30,24 +30,7 @@ $(document).ready(function () {
     });
 
 
-    jQuery(function ($) {
-        $.getJSON('http://localhost:5213/api/activite/', function (data) {
-            var result = [];
-
-            for (var i in data) {
-                result.push({ value: data[i].nom, tel: data[i].id });
-                result.push({ value: data[i].nom_ar, tel: data[i].id });
-            }
-
-            $('#autocomplete').autocomplete({
-                lookup: result,
-                onSelect: function (suggestion) {
-
-                }
-
-            });
-        });
-    });
+   
 
 
 
