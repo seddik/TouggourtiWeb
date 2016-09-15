@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     jQuery(function ($) {
         $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Touggourt&units=metric&APPID=df11073dc1abfbeb8d46132ea00ee41d', function (data) {
-
+            
             $("#tggt-weather-value").html(Math.round(data["main"]["temp"]) + "&#176;C");
             $("#tggt-weather-img").attr('src', "http://openweathermap.org/img/w/" + data["weather"][0]["icon"] + ".png");
         });
@@ -19,7 +19,7 @@ $(document).ready(function () {
             var asr = convert_to_24h(times.items[0].asr);
             var maghrib = convert_to_24h(times.items[0].maghrib);
             var isha = convert_to_24h(times.items[0].isha);
-
+            $('#prayer-times').html("");
             $('#prayer-times')
             .append('<td>' + sobh)
             .append('</td><td>' + dohr)
