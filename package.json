@@ -21,6 +21,7 @@
     "body-parser": "^1.0.2",
     "epilogue": "^0.7.0",
     "express": "~4.0.0",
+    "express-handlebars": "^3.0.0",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "^1.0.1",
