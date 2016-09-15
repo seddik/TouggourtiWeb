@@ -3,6 +3,12 @@
     font-family: tggtfont;
     src: url('fonts/tggtfont.otf') format('opentype');
 }
+@font-face {
+    font-family: iconvault;
+    src: url('fonts/iconvault_forecastfont.woff') format('woff');
+      font-weight: normal;
+	  font-style: normal;
+}
 
 .navbar-brand {
     padding-top: 15px;
@@ -24,6 +30,15 @@
     -webkit-border-radius: 0;
     border-radius: 0;
 }
+#tggt-weather-value{
+    vertical-align:text-bottom;
+    font-size:1.2em;
+    display:inline;
+    margin-bottom:30px;
+}
+#tggt-weather-icon{
+    display:inline;
+}
 #map{
     height:400px;
 }
@@ -39,3 +54,226 @@
     text-align:center;
         
 }
+
+
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'iconvault';
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  font-size: 2em;
+  line-height: 2em;
+
+}
+
+@media only screen and (min-width: 479px) and (max-width: 678px){
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'iconvault';
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;}
+}
+
+/* -----BaseCloud----- */
+
+	.basecloud:before  {
+	font-family: 'iconvault';
+	font-size:6em;
+	content: '\f105';
+	
+	color:rgb(204, 204, 204);
+	}
+	
+	
+	
+/* -----windyraincloud----- */
+
+	.windyraincloud:before  {
+	font-family: 'iconvault';
+	font-size:6em;
+	content: '\f111';
+	
+	color:rgb(204, 204, 204);
+	}
+	
+/* -----Windysnowcloud----- */
+
+	.windysnowcloud:before  {
+	font-family: 'iconvault';
+	font-size:6em;
+	content: '\f109';
+	
+	color:rgb(204, 204, 204);
+	}
+
+/* -----Basethundercloud----- */
+
+	.basethundercloud:before  {
+	font-family: 'iconvault';
+	font-size:6em;
+	content: '\f105';
+	
+	color:#000;
+
+	}
+
+
+/* -----Thunder----- */
+
+	.icon-thunder::before  {
+	content: "\f114";
+	
+	color:rgb(255, 165, 0);
+	}
+
+/* -----Sunny----- */
+
+	.icon-sunny::after {
+	content: "\f101";
+	color:rgb(255, 165, 0);
+    line-height:2em;
+	}
+
+
+/* -----Drizzle----- */
+
+	.icon-drizzle::before  {
+	content: "\f10a";
+	color: #82b2e4;
+	
+}
+
+/* -----Hail----- */
+
+	.icon-hail::before {
+	content: "\f10f";
+	
+	color:rgb(204, 204, 204);}
+
+/* -----Showers----- */
+
+	.icon-showers::before  {
+	content: "\f104";
+	
+	color:#82b2e4;
+}
+
+/* -----Rainy----- */
+
+	.icon-rainy::before {
+	content: "\f107";
+	
+	color:#4681c3;
+	}
+
+/* -----Snowy----- */
+
+	.icon-snowy::before  {
+	content: "\f10b";
+	
+	color:#acd3f3;
+	}
+
+/* -----Frosty----- */
+
+	.icon-frosty::before {
+	content: "\f102";
+	
+	color:#85d8f7;
+	}
+
+/* -----Windy----- */
+
+	.icon-windy::before  {
+	content: "\f115";
+	
+	color:rgb(204, 204, 204);
+	}
+
+/* -----WindyRain----- */
+
+	.icon-windyrain::before {
+	content: "\f10e";
+	
+	color:#acd3f3;
+	}
+
+/* -----WindySnow----- */
+
+	.icon-windysnow::before {
+	content: "\f103";
+	
+	color:#acd3f3;
+	}
+
+/* -----Sleet----- */
+
+	.icon-sleet::before  {
+	content: "\f10c";
+	
+	color:#acd3f3;
+	}
+
+/* -----Moon----- */
+
+	.icon-moon::after {
+	content: "\f10d";
+	color:rgb(255, 165, 0);
+	
+	}
+
+/* -----Night----- */
+
+	.icon-night::after {
+	content: "\f100";
+	
+	color:rgb(255, 165, 0);
+	}
+
+
+/* -----Sun----- */
+
+	.icon-sun::after {
+	content: "\f113";
+	color:rgb(255, 165, 0);
+	
+	}
+
+/* -----Cloud----- */
+
+	.icon-cloud::after {
+	content: "\f106";
+	color:rgb(204, 204, 204);
+	
+	}
+
+
+/* -----Sunrise----- */
+
+	.icon-sunrise:before  {
+	content: '\f112';
+	color:rgb(255, 165, 0);
+	
+	}
+
+/* -----Sunset----- */
+
+	.icon-sunset:before  {
+	content: '\f110';
+	color:#f96f23;
+	
+	}
+
+/* -----Mist----- */
+
+	.icon-mist:before  {
+	content: '\f108';
+	color:rgb(204, 204, 204);
+	
+	}
+

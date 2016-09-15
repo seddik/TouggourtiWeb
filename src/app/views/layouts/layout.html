@@ -13,7 +13,7 @@
 
     <!-- 2. Load our 'modules' -->
 
-    <script src="js/tools.js"></script>
+    <script src="tools.js"></script>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -63,9 +63,25 @@
             <div class="col-md-4">
                 <!-- Blog Search Well -->
                 <!-- Blog Categories Well -->
-                <div class="well">
-                    <h4>مدينة تقرت</h4>
-                    <p><img id="tggt-weather-img" /><span id="tggt-weather-value"><img src="images/ripple.svg" alt="جاري التحميل" /></span></p>
+                <div class="panel">
+                    <p id="tggt-date"></p>
+                    <p>
+                        <span id="tggt-weather-value">
+                            <img src="images/ripple.svg" alt="جاري التحميل" />
+                        </span>
+                        <i id="tggt-weather-icon"></i>
+                    </p>
+                    
+                   
+                    <table class="table table-condensed table-responsive table-striped">
+                        <tr id="tggt-forecast-days">
+                            <td><img class="tggt-forecast-loading" src="images/ripple.svg" alt="جاري التحميل" /></td>
+                        </tr>
+                        <tr id="tggt-forecast">
+                            <td><img class="tggt-forecast-loading" src="images/ripple.svg" alt="جاري التحميل" /></td>
+                        </tr>
+                    </table>
+                    <hr/>
                     <table class="table table-condensed table-responsive table-striped">
                         <tr>
                             <td>الصبح</td>
@@ -95,7 +111,8 @@
                 </div>
                 <div class="well">
                     <h4>آخر أخبار المدينة</h4>
-                    <ul class="list-group" id="list-activite">{{host}}</ul>
+                    <div>
+                    </div>
                 </div>
                 <!-- Side Widget Well -->
                 <div class="well">
@@ -113,7 +130,7 @@
     <footer>
         <div style="padding-top:20px;padding-bottom:5px">
             <div style="margin:auto;text-align:center;width:70%;color:white">
-                <p>جميع الحقوق محفوظة &copy; تقرتي 2016</p>
+                <p>جميع الحقوق محفوظة &copy;  <span id="tggt-copyright-year"></span> تقرتي</p>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -121,6 +138,8 @@
     </footer>
 
     <script>
+
+
         var map;
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
@@ -138,6 +157,13 @@
     <script src="js/bootstrap.js"></script>
 
     <script>
+        var date=new Date();
+
+        $("#tggt-date").text(getDay( date.getDay())+' '+date.getDate()+' '+getMonth(date.getMonth()) +' '+date.getFullYear());
+
+        $("#tggt-copyright-year").text(date.getFullYear().toString());
+
+
         jQuery(function ($) {
             $.getJSON('{{api_activite_url}}', function (data) {
                 var result = [];
