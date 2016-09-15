@@ -16,7 +16,7 @@ module.exports = function (grunt) {
                     './public/vendor/bootstrap/dist/js/bootstrap.js'
 
                 ],
-                dest: './src/app/js/bsjq.js',
+                dest: './src/app/www/js/bsjq.js',
             }
         },
         less: {
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
                     compress: true,  //minifying the result
                 },
                 files: {
-                    "./src/app/css/frontend.css": "./src/assets/css/frontend.less"
+                    "./src/app/www/css/frontend.css": "./src/assets/css/frontend.less"
                 }
             }
         },
@@ -35,24 +35,24 @@ module.exports = function (grunt) {
             },
             default: {
                 files: {
-                    './src/app/js/frontend.js': './src/app/js/frontend.js',
-                    './src/app/js/bootstrap.js': './src/app/js/bootstrap.js',
-                    './src/app/js/jquery.js': './src/app/js/jquery.js',
+                    './src/app/www/js/frontend.js': './src/app/www/js/frontend.js',
+                    './src/app/www/js/bootstrap.js': './src/app/www/js/bootstrap.js',
+                    './src/app/www/js/jquery.js': './src/app/www/js/jquery.js',
                 }
             },
 
         },
-        clean: ["src/app/css","src/app/fonts","src/app/js"],
+        clean: ["src/app/www/css", "src/app/www/fonts", "src/app/www/js"],
         copy: {
             default: {
                 files: [
 
                   
-                  { expand: true, src: "*", cwd: "src/assets/js/", dest: './src/app/js' },
-                  { expand: true, src: "tggtfont.otf", cwd: "src/assets/fonts/", dest: './src/app/fonts' },
-                { expand: true, src: "bootstrap.js", cwd: "public/vendor/bootstrap/dist/js/", dest: './src/app/js' },
-                { expand: true, src: "jquery.js", cwd: "public/vendor/jquery/dist/", dest: './src/app/js' },
-                { expand: true, src: "*", cwd: "public/vendor/font-awesome/fonts/", dest: './src/app/fonts' }
+                  { expand: true, src: "*", cwd: "src/assets/js/", dest: './src/app/www/js' },
+                  { expand: true, src: "tggtfont.otf", cwd: "src/assets/fonts/", dest: './src/app/www/fonts' },
+                { expand: true, src: "bootstrap.js", cwd: "public/vendor/bootstrap/dist/js/", dest: './src/app/www/js' },
+                { expand: true, src: "jquery.js", cwd: "public/vendor/jquery/dist/", dest: './src/app/www/js' },
+                { expand: true, src: "*", cwd: "public/vendor/font-awesome/fonts/", dest: './src/app/www/fonts' }
 
                 ],
             }

@@ -2,7 +2,7 @@
   "name": "touggourtiweb",
   "version": "0.1.0",
   "description": "Touggourt Social Network",
-  "main": "app/app.main.js",
+  "main": "src/app/app.js",
   "scripts": {
     "start": "npm run lite",
     "server": "nodemon src/server/app/server.js",
