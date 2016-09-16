@@ -49,7 +49,7 @@ module.exports = function (grunt) {
 
                   
                   { expand: true, src: "*", cwd: "src/assets/js/", dest: './src/app/www/js' },
-                  { expand: true, src: "tggtfont.otf", cwd: "src/assets/fonts/", dest: './src/app/www/fonts' },
+                  { expand: true, src: "*", cwd: "src/assets/fonts/", dest: './src/app/www/fonts' },
                 { expand: true, src: "bootstrap.js", cwd: "public/vendor/bootstrap/dist/js/", dest: './src/app/www/js' },
                 { expand: true, src: "jquery.js", cwd: "public/vendor/jquery/dist/", dest: './src/app/www/js' },
                 { expand: true, src: "*", cwd: "public/vendor/font-awesome/fonts/", dest: './src/app/www/fonts' }
