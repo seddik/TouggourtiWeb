@@ -1,3 +1,9 @@
+Date.prototype.addDays = function (days) {
+    var dat = new Date(this.valueOf());
+    dat.setDate(dat.getDate() + days);
+    return dat;
+}
+
 $(document).ready(function () {
 
 
@@ -12,27 +18,23 @@ $(document).ready(function () {
         });
     });
     jQuery(function ($) {
-        $.getJSON('http://api.openweathermap.org/data/2.5/forecast?q=Touggourt&units=metric&APPID=df11073dc1abfbeb8d46132ea00ee41d', function (data) {
+        $.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?q=Touggourt&cnt=5&units=metric&APPID=df11073dc1abfbeb8d46132ea00ee41d', function (data) {
 
-            var today = getDay(new Date().getDay());
-
-
-            var days = [];
+            var today  = new Date();
+            
             $('#tggt-forecast-days').html("");
-            for (var i in data.list) {
-                var curr_date = getDay(convert_sql_date(data.list[i].dt_txt.substring(0, 10)).getDay());
+            $('#tggt-forecast').html("");
 
+            for (var i = 0; i < data.list.length; i++) {
 
-                if (curr_date != today && days.indexOf(curr_date) == -1) {
-                    days.push(curr_date);
+                
+                var curr_date = new Date(data.list[i].dt*1000);
+                $("#tggt-forecast-days").append('<td>' + getDay(curr_date.getDay()) + '</td>')
+                $("#tggt-forecast").append('<td><i class="' + convert_weather_to_icon(data.list[i].weather[0].main) + '"></i> ' + Math.ceil(data.list[i].temp.day) + '</td>')
 
-                    $("#tggt-forecast-days").append('<td>' + curr_date + '</td>')
-                }
             }
 
 
-            //$("#tggt-forecast-days").html(Math.round(data["main"]["temp"]) + "&#176;C");
-            //$("#tggt-weather-icon").addClass(convert_weather_to_icon(data["weather"][0]["main"]));
 
             $(".tggt-forecast-loading").hide();
         });
