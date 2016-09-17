@@ -1,5 +1,8 @@
 # Touggourti Web Application
 
+&#x202b;إضغط هنا للمحادثة وطلب توجيهات أو تعليمات أو أي شيء
+[![Touggourti chat](https://badges.gitter.im/USER/REPO.png)](https://gitter.im/touggourti/Lobby "Chat")
+
 ### Installation
 `git clone https://github.com/mslaraba/TouggourtiWeb.git`
 
