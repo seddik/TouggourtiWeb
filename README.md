@@ -1,4 +1,9 @@
+
 # Touggourti Web Application
+
+[![Build Status](https://travis-ci.org/mslaraba/TouggourtiWeb.svg?branch=master)](https://travis-ci.org/mslaraba/TouggourtiWeb)
+
+<hr/>
 
 &#x202b;إضغط هنا للمحادثة وطلب توجيهات أو تعليمات أو أي شيء
 [![Touggourti chat](https://badges.gitter.im/USER/REPO.png)](https://gitter.im/touggourti/Lobby "Chat")
